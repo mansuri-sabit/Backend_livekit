@@ -1,0 +1,14 @@
+# Example self-hosted LiveKit server snippets (schema varies by LiveKit version —
+# see https://docs.livekit.io/ for current keys). Not used by this Python repo.
+
+# rtc:
+#   use_external_ip: true
+#   # Narrow UDP range → faster ICE; open these + your signaling port in the firewall.
+#   udp_port_range:
+#     start: 7800
+#     end: 7850
+#
+# Opus DTX, RED (redundant encoding for packet loss), and codec lists are server-side.
+# Audio RED: https://docs.livekit.io/transport/media/audio-red/ (enabled_codecs / client publish)
+#
+# Some deployments use port_range_start / port_range_end instead — match your server version.

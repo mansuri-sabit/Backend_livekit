@@ -1,0 +1,13 @@
+port: 8280
+rtc:
+  tcp_port: 8281
+  port_range_start: 50060
+  port_range_end: 50160
+  use_external_ip: false
+  node_ip: 127.0.0.1
+
+keys:
+  devkey: secret
+
+logging:
+  level: info

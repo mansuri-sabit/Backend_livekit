@@ -1,0 +1,44 @@
+services:
+  # ── PROTECTED — do not modify this block ─────────────────────────────────────
+  livekit:
+    image: livekit/livekit-server:latest
+    container_name: livekit-server
+    ports:
+      - "7880:7880"      # HTTP + WebSocket signaling
+      - "7881:7881"      # ICE/TCP
+      - "50000-50100:50000-50100/udp"  # WebRTC media (UDP)
+    volumes:
+      - ./livekit.yaml:/livekit.yaml
+    command: --config /livekit.yaml --dev --bind 0.0.0.0
+    restart: unless-stopped
+  # ── END PROTECTED BLOCK ───────────────────────────────────────────────────────
+
+  # ── MongoDB (added Phase 1 — Pipecat pipeline + dashboard data) ───────────────
+  mongo:
+    image: mongo:7-jammy
+    container_name: ai-calling-mongo
+    # No host port exposure — accessed only by the app container on the internal
+    # Docker network. Override with "27017:27017" for local Atlas-free dev only.
+    expose:
+      - "27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: changeme
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+  # ── Redis (added Phase 1 — campaign queues, concurrency slots, caching) ───────
+  redis:
+    image: redis:7-alpine
+    container_name: ai-calling-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+  redis_data:
