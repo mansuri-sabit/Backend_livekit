@@ -2,8 +2,27 @@ name: Agent 1 - Propose Activity Update
 
 on:
   schedule:
-    # 09:15 UTC on Mon/Wed/Fri — adjust days/time as you like
-    - cron: '15 9 * * 1,3,5'
+    # 20 runs/day, every 30 min, 09:00-18:30 IST = 03:30-13:00 UTC
+    - cron: '30 3 * * *'
+    - cron: '0 4 * * *'
+    - cron: '30 4 * * *'
+    - cron: '0 5 * * *'
+    - cron: '30 5 * * *'
+    - cron: '0 6 * * *'
+    - cron: '30 6 * * *'
+    - cron: '0 7 * * *'
+    - cron: '30 7 * * *'
+    - cron: '0 8 * * *'
+    - cron: '30 8 * * *'
+    - cron: '0 9 * * *'
+    - cron: '30 9 * * *'
+    - cron: '0 10 * * *'
+    - cron: '30 10 * * *'
+    - cron: '0 11 * * *'
+    - cron: '30 11 * * *'
+    - cron: '0 12 * * *'
+    - cron: '30 12 * * *'
+    - cron: '0 13 * * *'
   workflow_dispatch: {}
 
 permissions:
