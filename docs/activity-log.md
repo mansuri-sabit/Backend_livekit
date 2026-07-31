@@ -21,3 +21,4 @@
 - 2026-07-30: Verified build passes on a clean checkout.
 - 2026-07-30: Verified build passes on a clean checkout.
 - 2026-07-30: Verified build passes on a clean checkout.
+- 2026-07-31: Noted a small doc clarification for later.
