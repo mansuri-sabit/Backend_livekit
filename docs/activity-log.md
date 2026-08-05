@@ -122,3 +122,4 @@
 - 2026-08-04: Verified build passes on a clean checkout.
 - 2026-08-04: Verified build passes on a clean checkout.
 - 2026-08-05: Noted a small doc clarification for later.
+- 2026-08-05: Noted a small doc clarification for later.
