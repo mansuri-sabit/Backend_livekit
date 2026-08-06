@@ -143,3 +143,4 @@
 - 2026-08-05: Noted a small doc clarification for later.
 - 2026-08-06: Checked open issues for staleness.
 - 2026-08-06: Checked open issues for staleness.
+- 2026-08-06: Checked open issues for staleness.
